@@ -44,3 +44,29 @@ const addButton = document.getElementById("addProductionBtn");
 if (addButton) {
     addButton.addEventListener("click", addProduct);
 }
+
+// Task 4: Business Customer Section – Handling Event Bubbling
+const customerSection = document.getElementById("customerSection");
+function addCustomerCard() {
+    if (customerSection) {
+        const customerCard = document.createElement("div");
+        customerCard.setAttribute("class", "customer-card");
+        customerCard.textContent = "Customer Card";
+        customerCard.addEventListener("click", function (event) {
+            console.log("Customer card clicked");
+            event.stopPropagation();
+        });
+        customerSection.appendChild(customerCard);
+    } else {
+        console.error("Customer section not found.");
+    }
+}
+if (customerSection) {
+    customerSection.addEventListener("click", function () {
+        console.log("Customer section clicked");
+    });
+}
+const addCustomerBtn = document.getElementById("addCustomerBtn");
+if (addCustomerBtn) {
+    addCustomerBtn.addEventListener("click", addCustomerCard);
+}
